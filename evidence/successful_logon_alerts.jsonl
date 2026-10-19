@@ -1,0 +1,1 @@
+{"timestamp":"2026-10-19T03:29:39.403+0000","ruleID":"100102","severity":5,"description":"SOC Lab: Successful Windows network logon detected (Event ID 4624, Type 3)","endpoint":"win11-soc-endpoint","eventID":"4624","username":"Marwan Hassan","logonType":"3"}

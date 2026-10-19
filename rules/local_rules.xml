@@ -1,0 +1,28 @@
+<group name="windows,authentication_failed,">
+  <rule id="100100" level="8">
+    <if_sid>60122</if_sid>
+    <description>SOC Lab: Windows failed logon detected (Event ID 4625)</description>
+    <group>soc_lab,authentication_failed,</group>
+  </rule>
+
+  <rule id="100101" level="10" frequency="5" timeframe="60">
+    <if_matched_sid>100100</if_matched_sid>
+    <same_field>win.eventdata.targetUserName</same_field>
+    <description>SOC Lab: Multiple Windows failed logons for the same username within 60 seconds</description>
+    <group>soc_lab,authentication_failed,</group>
+  </rule>
+</group>
+
+
+
+
+<group name="windows,authentication_success,">
+  <rule id="100102" level="5">
+    <if_sid>60106</if_sid>
+    <field name="win.system.eventID">^4624$</field>
+    <field name="win.eventdata.logonType">^3$</field>
+    <description>SOC Lab: Successful Windows network logon detected (Event ID 4624, Type 3)</description>
+    <group>soc_lab,authentication_success,</group>
+  </rule>
+</group>
+
